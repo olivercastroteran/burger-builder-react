@@ -1,13 +1,13 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../axios-orders';
 
-export const purchaseBurgerSuccess = () => {
+export const purchaseBurgerStart = () => {
   return {
     type: actionTypes.PURCHASE_BURGER_START,
   };
 };
 
-export const purchaseBurger = (id, orderData) => {
+export const purchaseBurgerSuccess = (id, orderData) => {
   return {
     type: actionTypes.PURCHASE_BURGER_SUCCESS,
     orderId: id,
@@ -22,7 +22,7 @@ export const purchaseBurgerFail = (error) => {
   };
 };
 
-export const purchaseBurgerStart = (orderData) => {
+export const purchaseBurger = (orderData) => {
   return (dispatch) => {
     dispatch(purchaseBurgerStart());
     axios
@@ -34,5 +34,11 @@ export const purchaseBurgerStart = (orderData) => {
       .catch((error) => {
         dispatch(purchaseBurgerFail(error));
       });
+  };
+};
+
+export const purchaseInit = () => {
+  return {
+    type: actionTypes.PURCHASE_INIT,
   };
 };
