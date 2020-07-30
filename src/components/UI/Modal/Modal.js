@@ -11,10 +11,6 @@ class Modal extends Component {
     );
   }
 
-  // componentDidUpdate() {
-  //   console.log('[Moda.js] updated');
-  // }
-
   render() {
     return (
       <Aux>
